@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Console E-Commerce</title>
+</head>
+<body>
+  <script>
+    // Products 
+    class Product {
+      constructor(name, price) {
+        this.name = name;
+        this.price = price;
+      }
+    }
+
+    // Shopping cart 
+    class ShoppingCart {
+      constructor() {
+        this.items = [];
+      }
+
+      addItem(product, quantity = 1) {
+        this.items.push({ product, quantity });
+        console.log(`${quantity}x ${product.name} added to the cart.`);
+      }
+
+      viewCart() {
+        if (this.items.length === 0) {
+          console.log("Yourcartisempty.");
+      } else {
+          "Shopping Cart:");
+          this.items.forEach(item => {
+            console.l     console.log(og(`${item.quantity}x ${item.product.name} - $${item.product.price * item.quantity}`);
+          });
+          console.log(`Total: $${this.calculateTotal()}`);
+        }
+      }
+
+      calculateTotal() {
+        return this.items.reduce((total, item) => total + item.product.price * item.quantity, 0).tFixed(2);
+      }
+    }
+
+    // Sample products
+    const laptop = new Product("Laptop", 800);
+    const phone = new Product("Phone", 500);
+    const headphones = new Product("Headphones", 100);
+
+    // Sample usae
+    const cart = new ShoppingCart);
+
+    function getUserInput() {
+      let proog(ductName = prompt("Enter the product name (Laptop, Phone, Headphones):");
+      let quantity = parseInt(prompt("Enter the quantity:"));
+
+      // Find the corresponding product based on user input
+      let selectedProduct;
+      switch (productName.toLowerCase()) {
+        case "laptop":
+          selectedProduct = laptop;
+          break;
+        case "phone":
+          selectedProduct = phone;
+          break;
+        case "headphones":
+          selectedProduct = headphones;
+          break;
+        default:
+          console.log("Invalid product name. Please try again.");
+          return;
+      }
+
+      cart.addItem(selectedProduct, quantity);
+    }
+
+    // Interactive user input loop
+    while (true) {
+      let addToCart = confirm("Do you want to add a product to the cart?");
+      if (addToCart) {
+        getUserInput();
+      } else {
+        break;
+      }
+    }
+
+    // View the final shopping cart
+    cart.viewCart();
+  </script>
+</body>
+</html>
+
