@@ -30,7 +30,7 @@
         if (this.items.length === 0) {
           console.log("Yourcartisempty.");
       } else {
-          "Shopping Cart:");
+          "Shopping Cart:";
           this.items.forEach(item => {
             console.log(`${item.quantity}x ${item.product.name} - $${item.product.price * item.quantity}`);
           });
@@ -49,7 +49,7 @@
     const headphones = new Product("Headphones", 100);
 
     // Sample usae
-    const cart = new ShoppingCart);
+    const cart = new ShoppingCart;
 
     function getUserInput() {
       let productName = prompt("Enter the product name (Laptop, Phone, Headphones):");
@@ -90,4 +90,3 @@
   </script>
 </body>
 </html>
-
